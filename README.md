@@ -46,3 +46,5 @@ Infrastructure
 
 
 docker compose -f docker-compose.infrastructure.yaml up -d
+
+This project is based on an open-source microservices architecture example and has been modified and extended for learning and experimentation.
