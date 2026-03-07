@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 820" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="clientGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <linearGradient id="gatewayGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="serviceGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="mqGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="cacheGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f87171"/>
+    </linearGradient>
+    <linearGradient id="obsGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#facc15"/>
+    </linearGradient>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="820" rx="16" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
+    </pattern>
+    <rect width="960" height="820" fill="url(#grid)"/>
+  </g>
+
+  <!-- Title -->
+  <text x="480" y="42" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="700" letter-spacing="2">AIRLINE MICROSERVICES ARCHITECTURE</text>
+  <line x1="320" y1="52" x2="640" y2="52" stroke="#334155" stroke-width="1"/>
+
+  <!-- Connection lines -->
+  <g stroke="#475569" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <!-- Client to Gateway -->
+    <line x1="480" y1="105" x2="480" y2="145"/>
+    <!-- Gateway to Services -->
+    <line x1="380" y1="205" x2="200" y2="280"/>
+    <line x1="480" y1="205" x2="480" y2="280"/>
+    <line x1="580" y1="205" x2="760" y2="280"/>
+    <!-- Services to RabbitMQ -->
+    <line x1="200" y1="340" x2="400" y2="405"/>
+    <line x1="480" y1="340" x2="480" y2="405"/>
+    <line x1="760" y1="340" x2="560" y2="405"/>
+    <!-- RabbitMQ to DBs -->
+    <line x1="420" y1="465" x2="300" y2="530"/>
+    <line x1="540" y1="465" x2="660" y2="530"/>
+    <!-- PostgreSQL to Redis -->
+    <line x1="300" y1="590" x2="420" y2="640"/>
+    <!-- MongoDB to Redis -->
+    <line x1="660" y1="590" x2="540" y2="640"/>
+    <!-- Redis to Observability -->
+    <line x1="480" y1="700" x2="480" y2="730"/>
+  </g>
+
+  <!-- ══════ NODES ══════ -->
+
+  <!-- Client -->
+  <g filter="url(#shadow)">
+    <rect x="390" y="65" width="180" height="42" rx="21" fill="url(#clientGrad)"/>
+    <text x="480" y="92" text-anchor="middle" fill="white" font-size="14" font-weight="600">Client</text>
+  </g>
+
+  <!-- API Gateway -->
+  <g filter="url(#shadow)">
+    <rect x="355" y="150" width="250" height="52" rx="8" fill="url(#gatewayGrad)"/>
+    <text x="480" y="172" text-anchor="middle" fill="white" font-size="11" font-weight="500" opacity="0.8">GATEWAY</text>
+    <text x="480" y="190" text-anchor="middle" fill="white" font-size="14" font-weight="700">API Gateway</text>
+  </g>
+
+  <!-- Booking Service -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="280" width="200" height="56" rx="8" fill="url(#serviceGrad)"/>
+    <text x="200" y="302" text-anchor="middle" fill="white" font-size="10" font-weight="500" opacity="0.8">SERVICE</text>
+    <text x="200" y="322" text-anchor="middle" fill="white" font-size="14" font-weight="700">Booking Service</text>
+  </g>
+
+  <!-- Passenger Service -->
+  <g filter="url(#shadow)">
+    <rect x="380" y="280" width="200" height="56" rx="8" fill="url(#serviceGrad)"/>
+    <text x="480" y="302" text-anchor="middle" fill="white" font-size="10" font-weight="500" opacity="0.8">SERVICE</text>
+    <text x="480" y="322" text-anchor="middle" fill="white" font-size="14" font-weight="700">Passenger Service</text>
+  </g>
+
+  <!-- Flight Service -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="280" width="200" height="56" rx="8" fill="url(#serviceGrad)"/>
+    <text x="760" y="302" text-anchor="middle" fill="white" font-size="10" font-weight="500" opacity="0.8">SERVICE</text>
+    <text x="760" y="322" text-anchor="middle" fill="white" font-size="14" font-weight="700">Flight Service</text>
+  </g>
+
+  <!-- RabbitMQ -->
+  <g filter="url(#shadow)">
+    <rect x="355" y="405" width="250" height="56" rx="8" fill="url(#mqGrad)"/>
+    <text x="480" y="427" text-anchor="middle" fill="white" font-size="10" font-weight="500" opacity="0.9">MESSAGE BROKER</text>
+    <text x="480" y="447" text-anchor="middle" fill="white" font-size="14" font-weight="700">RabbitMQ</text>
+  </g>
+
+  <!-- PostgreSQL -->
+  <g filter="url(#shadow)">
+    <rect x="170" y="535" width="220" height="56" rx="8" fill="url(#dbGrad)"/>
+    <text x="280" y="557" text-anchor="middle" fill="white" font-size="10" font-weight="500" opacity="0.9">RELATIONAL DB</text>
+    <text x="280" y="577" text-anchor="middle" fill="white" font-size="14" font-weight="700">PostgreSQL</text>
+  </g>
+
+  <!-- MongoDB -->
+  <g filter="url(#shadow)">
+    <rect x="550" y="535" width="220" height="56" rx="8" fill="url(#dbGrad)"/>
+    <text x="660" y="557" text-anchor="middle" fill="white" font-size="10" font-weight="500" opacity="0.9">DOCUMENT DB</text>
+    <text x="660" y="577" text-anchor="middle" fill="white" font-size="14" font-weight="700">MongoDB</text>
+  </g>
+
+  <!-- Redis -->
+  <g filter="url(#shadow)">
+    <rect x="380" y="645" width="200" height="52" rx="8" fill="url(#cacheGrad)"/>
+    <text x="480" y="665" text-anchor="middle" fill="white" font-size="10" font-weight="500" opacity="0.9">CACHE</text>
+    <text x="480" y="684" text-anchor="middle" fill="white" font-size="14" font-weight="700">Redis</text>
+  </g>
+
+  <!-- Observability Stack -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="735" width="400" height="60" rx="8" fill="url(#obsGrad)"/>
+    <text x="480" y="758" text-anchor="middle" fill="#1e293b" font-size="10" font-weight="600">OBSERVABILITY</text>
+    <text x="480" y="778" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="700">Prometheus  +  Grafana  +  ELK</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(32, 720)" opacity="0.7">
+    <text x="0" y="0" fill="#94a3b8" font-size="10" font-weight="600" letter-spacing="1">LEGEND</text>
+    <rect x="0" y="10" width="12" height="12" rx="2" fill="url(#serviceGrad)"/>
+    <text x="18" y="20" fill="#94a3b8" font-size="10">Services</text>
+    <rect x="0" y="28" width="12" height="12" rx="2" fill="url(#mqGrad)"/>
+    <text x="18" y="38" fill="#94a3b8" font-size="10">Messaging</text>
+    <rect x="0" y="46" width="12" height="12" rx="2" fill="url(#dbGrad)"/>
+    <text x="18" y="56" fill="#94a3b8" font-size="10">Databases</text>
+    <rect x="0" y="64" width="12" height="12" rx="2" fill="url(#cacheGrad)"/>
+    <text x="18" y="74" fill="#94a3b8" font-size="10">Cache</text>
+  </g>
+</svg>
